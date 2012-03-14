@@ -1,2 +1,2 @@
-(1) Icons anzeigen anstatt blue, red, etc.
 (2) Tooltip auf Widget enthält <br/>
+(3) Setzen des Widget-Status refactoren: neue Methode setWidgetStatus
