@@ -12,7 +12,7 @@
 	        "name": "jobsUrl",
 	        "title": "url pointing to a jobs list in json",
 	        "type": "string",
-	        "value": "http://localhost/~abeling/status.json"
+	        "value": "http://localhost/~aabeling/status.json"
     	},
     	{
     		"name": "pollingInterval",
