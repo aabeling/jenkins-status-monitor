@@ -2,7 +2,7 @@
     "name": "jenkins-status-monitor",
     "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
     "author": "Achim Abeling",
-    "version": "0.4",
+    "version": "0.5",
     "fullName": "jenkins-status-monitor",
     "id": "jid1-9KCv6SEFc9Vs6Q",
     "description": "monitors a list of jobs delivered by the jenkins rest api",
@@ -12,7 +12,7 @@
 	        "name": "jobsUrl",
 	        "title": "url pointing to a jobs list in json",
 	        "type": "string",
-	        "value": "http://localhost/~aabeling/status.json"
+	        "value": "resource://jid1-9kcv6sefc9vs6q-at-jetpack/jenkins-status-monitor/data/test/status.json"
     	},
     	{
     		"name": "pollingInterval",

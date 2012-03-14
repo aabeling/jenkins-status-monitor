@@ -1,0 +1,8 @@
+{"description":null,
+"jobs":[
+  {"name":"job1","url":"http://foobar/job/job1","color":"red"},
+  {"name":"job2","url":"http://foobar/job/job2","color":"blue"},
+  {"name":"job3","url":"http://foobar/job/job3","color":"blue"}
+],
+"name":"myjobs",
+"url":"http://foobar/view/myjobs/"}
