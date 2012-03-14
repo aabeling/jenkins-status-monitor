@@ -7,3 +7,6 @@ $ cfx run
 
 This will test the plugin with a jobs list defined in the plugin resources.
 
+The plugin can be installed from the AMO at
+https://addons.mozilla.org/de/firefox/addon/jenkins-status-monitor/
+
