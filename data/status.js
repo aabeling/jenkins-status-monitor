@@ -1,14 +1,16 @@
-self.port.on("show", function (unstableJobs) {
+self.port.on("show", function (unstableJobs, unstableTimes) {
 	console.log("the status panel is now shown");
+	console.log("unstableJobs : ", JSON.stringify(unstableJobs));
+	console.log("unstableTimes: ", JSON.stringify(unstableTimes));
 	
-	self.updateJobsTable(unstableJobs);
+	self.updateJobsTable(unstableJobs, unstableTimes);
 	if ( !self.initialized ) {
 		self.registerClickListener();
 		self.initialized = true;
 	}
 });
 
-self.updateJobsTable = function(jobs)
+self.updateJobsTable = function(jobs, unstableTimes)
 {
 	console.log("update jobs table");
 	
@@ -27,12 +29,32 @@ self.updateJobsTable = function(jobs)
 				+ job.name
 				+ "</a>"
 				+ "</td>"
+				+ "<td>"
+				+ self.getTimeDiffString(unstableTimes[job.name])
+				+ "</td>"
 				+ "</tr>"
 			$("#jobs-table").append(row);
 		}
 			
 		$("#jobs-table").show();
 		$("#stable-message").hide();
+	}
+}
+
+self.getTimeDiffString = function(dateString)
+{
+	/* the date comes as a string */
+	var date = new Date();
+	date.setTime(Date.parse(dateString));
+	
+	var diffInMillis = new Date().getTime() - date.getTime();
+	var diffInMinutes = Math.floor(diffInMillis / 60000);
+	var diffInHours = Math.floor(diffInMinutes / 60);
+	var diffModMinutes = diffInMinutes % 60;
+	if ( diffInHours > 0 ) {
+		return diffInHours + "h " + diffModMinutes + "m";
+	} else {
+		return diffModMinutes + "m";
 	}
 }
 
