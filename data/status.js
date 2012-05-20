@@ -43,6 +43,10 @@ self.updateJobsTable = function(jobs, unstableTimes)
 
 self.getTimeDiffString = function(dateString)
 {
+	if ( dateString == "0" ) {
+		return "?";
+	}
+	
 	/* the date comes as a string */
 	var date = new Date();
 	date.setTime(Date.parse(dateString));
