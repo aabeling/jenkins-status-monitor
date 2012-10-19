@@ -2,7 +2,7 @@
     "name": "jenkins-status-monitor",
     "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
     "author": "Achim Abeling",
-    "version": "2.0",
+    "version": "2.1",
     "fullName": "jenkins-status-monitor",
     "id": "jid1-9KCv6SEFc9Vs6Q",
     "description": "monitors a list of jobs delivered by the jenkins rest api",

@@ -1,16 +1,6 @@
-self.port.on("show", function (unstableJobs, unstableTimes) {
-	console.log("the status panel is now shown");
-	console.log("unstableJobs : ", JSON.stringify(unstableJobs));
-	console.log("unstableTimes: ", JSON.stringify(unstableTimes));
-	
-	self.updateJobsTable(unstableJobs, unstableTimes);
-	if ( !self.initialized ) {
-		self.registerClickListener();
-		self.initialized = true;
-	}
-});
+var statusPanel = {};
 
-self.updateJobsTable = function(jobs, unstableTimes)
+statusPanel.updateJobsTable = function(jobs, unstableTimes)
 {
 	console.log("update jobs table");
 	
@@ -30,18 +20,30 @@ self.updateJobsTable = function(jobs, unstableTimes)
 				+ "</a>"
 				+ "</td>"
 				+ "<td>"
-				+ self.getTimeDiffString(unstableTimes[job.name])
+				+ statusPanel.getTimeDiffString(unstableTimes[job.name])
 				+ "</td>"
-				+ "</tr>"
+				+ "</tr>";
 			$("#jobs-table").append(row);
 		}
 			
 		$("#jobs-table").show();
 		$("#stable-message").hide();
 	}
-}
+};
 
-self.getTimeDiffString = function(dateString)
+self.port.on("show", function (unstableJobs, unstableTimes) {
+	console.log("the status panel is now shown");
+	console.log("unstableJobs : ", JSON.stringify(unstableJobs));
+	console.log("unstableTimes: ", JSON.stringify(unstableTimes));
+	
+	statusPanel.updateJobsTable(unstableJobs, unstableTimes);
+	if ( !statusPanel.initialized ) {
+		statusPanel.registerClickListener();
+		statusPanel.initialized = true;
+	}
+});
+
+statusPanel.getTimeDiffString = function(dateString)
 {
 	if ( dateString == "0" ) {
 		return "?";
@@ -60,12 +62,12 @@ self.getTimeDiffString = function(dateString)
 	} else {
 		return diffModMinutes + "m";
 	}
-}
+};
 
 /**
  * Intercept click events from the status panel
  */
-self.registerClickListener = function() 
+statusPanel.registerClickListener = function() 
 {
 	$(window).click(function (event) {
 		  var t = event.target;
@@ -84,5 +86,5 @@ self.registerClickListener = function()
 		  event.preventDefault();
 		  self.port.emit('click', t.toString());
 		});
-}
+};
 

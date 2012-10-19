@@ -2,7 +2,8 @@
 "jobs":[
   {"name":"job1","url":"http://foobar/job/job1","color":"red"},
   {"name":"job2","url":"http://foobar/job/job2","color":"blue"},
-  {"name":"job3","url":"http://foobar/job/job3","color":"blue"}
+  {"name":"job3","url":"http://foobar/job/job3","color":"blue"},
+  {"name":"job4","url":"http://foobar/job/job4","color":"red_anime"}
 ],
 "name":"myjobs",
 "url":"http://foobar/view/myjobs/"}
